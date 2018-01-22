@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<div class="container">
+    <form class="form" autocomplete="off" method="POST" action="">
+
+        <h2> User Profile </h2>
+        <div class="section">
+            <div class="form-group">
+                <strong> <label for="name"> Full Name <span class="imp"> * </span> </label> </strong>
+                <div class="relative">
+                    <input class="form-control" id="name" type="text" autofocus=""
+                           title="Type your name here. Format: 'First-name Last-name'" autocomplete="off"
+                           placeholder="eg. John Smith" required>
+                    <i class="fa fa-user"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="form-group">
+                <strong> <label for="email"> Email address <span class="imp"> * </span> </label> </strong>
+                <div class="relative">
+                    <input id="email" class="form-control" type="email" placeholder="eg. abc@mail.com"
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                    <i class="fa fa-envelope"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="form-group">
+                <strong> <label for="contact"> Contact Number <span class="imp"> * </span> </label> </strong>
+                <div class="relative">
+                    <input id="contact" title="Type your 10-digit mobile number (US)..." type="tel"
+                           class="form-control input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" required>
+                    <i class="fa fa-phone"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="form-group">
+                <strong> <label for="company"> Company Name <span class="imp"> * </span> </label> </strong>
+                <div class="relative">
+                    <input id="company" class="form-control" type="text" title="Type your Company name here"
+                           placeholder="eg. Pied Piper" required>
+                    <i class="fa fa-building"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="form-group">
+                <strong> <label for="provider"> Current Provider <span class="imp"> * </span> </label> </strong>
+                <div class="relative">
+                    <input class="form-control" type="text" id="provider" title="Type your current provider"
+                           placeholder="eg. Titanium Payments" required>
+                    <i class="fa fa-suitcase"></i>
+                </div>
+            </div>
+        </div>
+
+        <br/>
+
+        <h2> Business Info. </h2>
+        <div class="section">
+            <strong><label for="Select1"> What type of business do you have? </label></strong>
+            <select class="form-control" id="Select1">
+                <option> Donations & Personal Services </option>
+                <option> Service Providers </option>
+                <option> Professional Services </option>
+                <option> Groups / Organizations </option>
+                <option> Events / Entertainment </option>
+                <option> Retail Business </option>
+            </select>
+
+            <strong> <label for="mcc"> MCC Code <span class="imp"> * </span> </label> </strong>
+
+            <select class="form-control" id="mcc">
+                <option> Travel-4722 </option>
+                <option> Camps-7032 </option>
+                <option> Film Screenings-7832 </option>
+                <option> Band / Orchestra-7929 </option>
+                <option> Theater-7922 </option>
+                <option> Other Events / Entertainment-7999 </option>
+            </select>
+        </div>
+
+        <div class="section">
+            <strong> <label> How do you accept payments? <span class="imp"> * </span> </label> </strong>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="retail" name="retail">
+                        <label class="custom-control-label" for="retail"> Retail </label>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="e-commerce" name="e-commerce">
+                        <label class="custom-control-label" for="e-commerce"> e-commerce </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="moto" name="moto">
+                        <label class="custom-control-label" for="moto"> Moto </label>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="other" name="other">
+                        <label class="custom-control-label" for="other"> Other </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <strong>
+                <label for="monthlyV">
+                    What's your monthly volume <i> (per month) </i>? <span class="imp"> * </span>
+                </label>
+            </strong>
+
+            <div class="form-group" id="monthlyV">
+                <div class="row bottom">
+                    <div class="col-sm-6">
+                        <label for="VISA"> VISA / Master Card </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" class="form-control" min="0" id="VISA" placeholder="Amount (USD)">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="discover"> Discover </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" class="form-control" min="0" id="discover" placeholder="Amount (USD)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row bottom">
+                    <div class="col-sm-6">
+                        <label for="AMEX"> Amex </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" class="form-control" min="0" id="AMEX" placeholder="Amount (USD)">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="pinDebit"> Pin Debit </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" class="form-control" min="0" id="pinDebit" placeholder="Amount (USD)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 offset-sm-3">
+                        <label for="fee"> Total fees paid </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" class="form-control" min="0" id="fee" placeholder="Amount (USD)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="row">
+                <strong style="margin-left: 1em;">
+                    <label> What's your Average ticket? <span class="imp"> * </span> </label>
+                </strong>
+            </div>
+
+            <label for="avgTicket"> Average Ticket </label>
+
+            <div class="relative input-group bottom">
+                <input type="number" class="form-control currency" min="0" step="1.00" data-number-to-fixed="2"
+                       data-number-stepfactor="100" id="avgTicket" placeholder="$">
+                <i class="fa fa-money"></i>
+            </div>
+
+            <p> Or </p>
+
+            <label for="tranxsPm"> Transactions <strong> (per month) </strong> </label>
+
+            <div class="relative">
+                <input type="number" class="form-control allownumericwithoutdecimal" id="tranxsPm" min="0" placeholder="eg. 1500">
+                <i class="fa fa-calculator"></i>
+            </div>
+        </div>
+            <br/>
+
+            <div class="tright">
+                <a href="">
+                    <button class="movebtn movebtnre" type="Reset">
+                        <i class="fa fa-fw fa-refresh"></i> Reset
+                    </button>
+                </a>
+
+                <a href="">
+                    <button class="movebtn movebtnsu" type="Submit"> Go!
+                        <i class="fa fa-fw fa-paper-plane"></i>
+                    </button>
+                </a>
+            </div>
+
+    </form>
+</div>
+<script src='https://code.jquery.com/jquery-1.12.4.js'></script>
+<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+<script src="js/bootstrap-formhelpers-phone.js"></script>
+<script>
+    $(".allownumericwithoutdecimal").on("keypress keyup blur",function (event) {
+        $(this).val($(this).val().replace(/[^\d].+/, ""));
+        if ((event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
+</script>
+</body>
+</html>

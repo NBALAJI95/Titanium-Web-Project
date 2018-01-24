@@ -263,11 +263,27 @@ button:hover {
     .form {
         width: 70%;
     }
+
+    form div.per {
+        width: 45%;
+    }
 }
+
+@media only screen and (min-width: 451px) and (max-width: 999px) {
+
+    form div.per {
+        width: 60%;
+    }
+}
+
 
 @media only screen and (max-width: 450px) {
     .form {
         width: 97%;
+    }
+
+    form div.per {
+        width: 85%;
     }
 }
 

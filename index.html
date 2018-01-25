@@ -76,8 +76,9 @@
             <div class="form-group">
                 <strong> <label for="zip"> Zip code <span class="imp"> * </span> </label> </strong>
                 <div class="relative">
-                    <input id="zip" class="form-control" type='text' ng-model='zipcode' name="myInput" ng-model="myInput"
-                            ng-pattern='/^(\d{5}(-\d{4})?|[A-Z]\d[A-Z] *\d[A-Z]\d)$/' placeholder='60625' required />
+                    <input id="zip" class="form-control" type='text' maxlength="5" ng-model='zipcode' name="myInput"
+                    ng-model="myInput" ng-pattern='/^(\d{5}(-\d{4})?|[A-Z]\d[A-Z] *\d[A-Z]\d)$/'
+                    placeholder='60625' required />
                     <i class="fa fa-map-pin"></i>
                 </div>
             </div>
@@ -119,7 +120,7 @@
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="retail" name="retail"
                                ng-model="retail" ng-change="toggle()" ng-required="retail || commerce || moto || other">
-                        <label class="custom-control-label" for="retail"> Retail </label>
+                        <label class="custom-control-label" for="retail"> Retail / Swiped </label>
                     </div>
 
                     <div ng-show="retail">
@@ -135,10 +136,10 @@
 
                 <div class="col-sm-6">
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="e-commerce" name="e-commerce"
+                        <input type="checkbox" class="custom-control-input" id="commerce" name="commerce"
                                ng-model="commerce" ng-change="toggle()"
                                ng-required="retail || commerce || moto || other">
-                        <label class="custom-control-label" for="e-commerce"> e-commerce </label>
+                        <label class="custom-control-label" for="commerce"> e-commerce </label>
                     </div>
                     <div ng-show="commerce">
                         <div class="relative per">
@@ -157,7 +158,8 @@
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="moto" name="moto" ng-model="moto"
                                ng-change="toggle()" ng-required="retail || commerce || moto || other">
-                        <label class="custom-control-label" for="moto"> Moto </label>
+                        <label class="custom-control-label" for="moto"> Phone order / Keyed </label>
+                        <!-- Previously called Moto -->
                     </div>
                     <div ng-show="moto">
                         <div class="relative per">
@@ -202,24 +204,38 @@
         <div class="section monthly">
             <strong>
                 <label for="monthlyV">
-                    What's your monthly volume <i> (per month) </i>? <span class="imp"> * </span>
+                    What's your monthly volume? <span class="imp"> * </span>
                 </label>
             </strong>
 
             <div class="form-group" id="monthlyV">
                 <div class="row ">
                     <div class="col-sm-6 bottom">
-                        <label for="VISA"> VISA / Master Card </label>
+                        <label for="VISA"> VISA </label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
                             </div>
                             <input type="number" class="form-control" min="0" name="a" ng-model="a" id="VISA"
                                    placeholder="Amount (USD)" ng-required="!(a != undefined || b != undefined
-                                   || c != undefined || d != undefined)">
+                                   || c != undefined || d != undefined || e != undefined)">
                         </div>
                     </div>
 
+                    <div class="col-sm-6 bottom">
+                        <label for="Master"> Master Card </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" class="form-control" min="0" name="e" ng-model="e" id="Master"
+                                   placeholder="Amount (USD)" ng-required="!(a != undefined || b != undefined
+                                   || c != undefined || d != undefined || e != undefined)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row ">
                     <div class="col-sm-6 bottom">
                         <label for="discover"> Discover </label>
                         <div class="input-group">
@@ -228,12 +244,10 @@
                             </div>
                             <input type="number" class="form-control" min="0" name="b" ng-model="b" id="discover"
                                    placeholder="Amount (USD)" ng-required="!(a != undefined || b != undefined
-                                   || c != undefined || d != undefined)">
+                                   || c != undefined || d != undefined || e != undefined)">
                         </div>
                     </div>
-                </div>
 
-                <div class="row ">
                     <div class="col-sm-6 bottom">
                         <label for="AMEX"> Amex </label>
                         <div class="input-group">
@@ -242,10 +256,12 @@
                             </div>
                             <input type="number" class="form-control" min="0" name="c" ng-model="c" id="AMEX"
                             placeholder="Amount (USD)" ng-required="!(a != undefined || b != undefined
-                            || c != undefined || d != undefined)">
+                            || c != undefined || d != undefined || e != undefined)">
                         </div>
                     </div>
+                </div>
 
+                <div class="row">
                     <div class="col-sm-6 bottom">
                         <label for="pinDebit"> Pin Debit </label>
                         <div class="input-group">
@@ -254,26 +270,25 @@
                             </div>
                             <input type="number" class="form-control" min="0" name="d" ng-model="d" id="pinDebit"
                             placeholder="Amount (USD)" ng-required="!(a != undefined || b != undefined
-                            || c != undefined || d != undefined)">
+                            || c != undefined || d != undefined || e != undefined)">
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-sm-6 offset-sm-3 bottom">
+                    <div class="col-sm-6 bottom">
                         <label for="fee"> Total fees paid </label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
                             </div>
-                            <input type="number" class="form-control" min="0" value="{{ a + b + c + d }}"
+                            <input type="number" class="form-control" min="0" value="{{ a + b + c + d + e }}"
                                    id="fee" placeholder="Amount (USD)" readonly>
                         </div>
                     </div>
                 </div>
                 <center> <b style="color: red; font-weight: bolder">
-                    <span ng-show="(myForm.a.$touched || myForm.b.$touched || myForm.c.$touched || myForm.d.$touched)
-                    && (myForm.a.$invalid && myForm.b.$invalid && myForm.c.$invalid && myForm.d.$invalid)">
+                    <span ng-show="(myForm.a.$touched || myForm.b.$touched || myForm.c.$touched || myForm.d.$touched
+                    || myForm.e.$touched) && (myForm.a.$invalid && myForm.b.$invalid && myForm.c.$invalid
+                    && myForm.d.$invalid && myForm.e.$invalid)">
                             Monthly Volume is required
                     </span> </b>
                 </center>
@@ -287,17 +302,6 @@
                 </strong>
             </div>
 
-            <label for="avgTicket"> Average Ticket </label>
-
-            <div class="relative input-group bottom">
-                <input type="number" class="form-control currency" min="0"
-                name="avgTicket" ng-model="avgTicket" id="avgTicket" placeholder="$"
-                ng-required="!(tranXns != undefined || avgTicket != undefined)">
-                <i class="fa fa-money"></i>
-            </div>
-
-            <p> Or </p>
-
             <label for="tranxsPm"> Transactions <strong> (per month) </strong> </label>
 
             <div class="relative">
@@ -307,19 +311,31 @@
                 <i class="fa fa-calculator"></i>
             </div>
 
-            <p> {{ tranXns.length }} </p>
+            <br/>
+
+            <p> Or </p>
+
+            <label for="avgTicket"> Average Ticket </label>
+
+            <div class="relative input-group bottom">
+                <input type="number" class="form-control currency" min="0"
+                name="avgTicket" ng-model="avgTicket" id="avgTicket" placeholder="$"
+                ng-required="!(tranXns != undefined || avgTicket != undefined)">
+                <i class="fa fa-money"></i>
+            </div>
 
             <center> <b style="color: red; font-weight: bolder"> <span ng-show="(myForm.avgTicket.$touched
                 || myForm.tranXns.$touched) && (tranXns == undefined && avgTicket == undefined)">
                     Average ticket value is required
                 </span> </b>
             </center>
+
         </div>
         <br/>
 
         <div class="tright">
             <a href="">
-                <button id="reset" class="movebtn movebtnre" type="Reset">
+                <button id="reset" ng-click="resetForm()" class="movebtn movebtnre" type="button">
                     <i class="fa fa-fw fa-refresh"></i> Reset
                 </button>
             </a>

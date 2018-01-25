@@ -7,10 +7,12 @@ app.controller('myCtrl', function($scope) {
     $scope.errorMsg = "";
 
     function reset() {
+        // console.log("reset error");
         $scope.errorMsg ="";
     }
 
     $scope.calc = function(p) {
+        // console.log("calc");
         const total = ($scope.retailV || 0) + ($scope.ecomerceV || 0) + ($scope.motoV || 0) + ($scope.otherV || 0);
         if(total > 100) {
             $scope.errorMsg = `Total percentage is ${total} which should not be greater than 100`;
@@ -24,6 +26,7 @@ app.controller('myCtrl', function($scope) {
     }
 
     $scope.toggle = function () {
+        // console.log("toggle");
         if(!$scope.retail) {
             $scope.retailV = 0;
         }
@@ -45,6 +48,45 @@ app.controller('myCtrl', function($scope) {
         if(!$scope.retail && !$scope.commerce && !$scope.moto && !$scope.other) {
             reset();
         }
+    }
+    
+    $scope.resetForm = function () {
+        console.log("Reset");
+        $scope.fullName = undefined;
+        $scope.email = undefined;
+        $scope.mobile = undefined;
+        $scope.companyName = undefined;
+        $scope.currentProvider = undefined;
+        $scope.zipcode = undefined; // zip
+        $scope.retailV = 0;
+        $scope.ecomerceV = 0;
+        $scope.motoV = 0;
+        $scope.otherV = 0;
+        $scope.a = undefined;
+        $scope.b = undefined;
+        $scope.c = undefined;
+        $scope.d = undefined;
+        $scope.avgTicket = undefined;
+        $scope.tranXns = undefined;
+        $scope.retail = false;
+        $scope.commerce = false;
+        $scope.moto = false;
+        $scope.other = false;
+        $scope.myForm.avgTicket.$setUntouched();
+        $scope.myForm.tranXns.$setUntouched();
+        $scope.myForm.myInput.$setUntouched();
+        reset();
+
+        $scope.myForm.retail.$setUntouched();
+        $scope.myForm.commerce.$setUntouched();
+        $scope.myForm.moto.$setUntouched();
+        $scope.myForm.other.$setUntouched();
+
+        $scope.myForm.a.$setUntouched();
+        $scope.myForm.b.$setUntouched();
+        $scope.myForm.c.$setUntouched();
+        $scope.myForm.d.$setUntouched();
+        $scope.myForm.e.$setUntouched();
     }
 
 });

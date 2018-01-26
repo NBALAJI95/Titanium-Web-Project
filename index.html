@@ -39,10 +39,10 @@
             </div>
         </div>
 
-        <center>
+        <!-- <center>
             <b ng-if="myForm.email.$invalid && myForm.email.$touched"
              style="color: red; font-weight: bolder;"> Enter a valid e-mail </b>
-        </center>
+        </center> -->
 
         <div class="section">
             <div class="form-group">
@@ -82,7 +82,7 @@
             <div class="form-group">
                 <strong> <label for="zip"> Zip code <span class="imp"> * </span> </label> </strong>
                 <div class="relative">
-                    <input id="zip" class="form-control" type='text' maxlength="5" ng-model='zipcode' name="myInput"
+                    <input id="zip" class="form-control" type='text' minlength="5" maxlength="5" ng-model='zipcode' name="myInput"
                     ng-model="myInput" ng-pattern='/^(\d{5}(-\d{4})?|[A-Z]\d[A-Z] *\d[A-Z]\d)$/'
                     placeholder='60625' required />
                     <i class="fa fa-map-pin"></i>
@@ -90,10 +90,10 @@
             </div>
         </div>
 
-        <center>
+        <!-- <center>
             <b ng-if="myForm.myInput.$invalid && myForm.myInput.$touched"
              style="color: red; font-weight: bolder;"> Enter a valid Zipcode </b>
-        </center>
+        </center> -->
 
         <h2> Business Info. </h2>
         <div class="section">

@@ -52,29 +52,37 @@ app.controller('myCtrl', function($scope) {
     
     $scope.resetForm = function () {
         console.log("Reset");
+
         $scope.fullName = undefined;
-        $scope.email = undefined;
+        // $scope.email = undefined;
         $scope.mobile = undefined;
         $scope.companyName = undefined;
         $scope.currentProvider = undefined;
         $scope.zipcode = undefined; // zip
+        $scope.eMail = undefined;
+
         $scope.retailV = 0;
         $scope.ecomerceV = 0;
         $scope.motoV = 0;
         $scope.otherV = 0;
+
         $scope.a = undefined;
         $scope.b = undefined;
         $scope.c = undefined;
         $scope.d = undefined;
+        $scope.e = undefined;
         $scope.avgTicket = undefined;
         $scope.tranXns = undefined;
+
         $scope.retail = false;
         $scope.commerce = false;
         $scope.moto = false;
         $scope.other = false;
+
         $scope.myForm.avgTicket.$setUntouched();
         $scope.myForm.tranXns.$setUntouched();
         $scope.myForm.myInput.$setUntouched();
+        $scope.myForm.email.$setUntouched();
         reset();
 
         $scope.myForm.retail.$setUntouched();
@@ -90,3 +98,11 @@ app.controller('myCtrl', function($scope) {
     }
 
 });
+
+// \d{3}[\-]\d{3}[\-]\d{4}
+//
+// [\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}
+//
+// [\+]\d{1}[\(]\d{3}[\)]\d{3}[\-]\d{4}
+//
+// +1 (816) 663-5964

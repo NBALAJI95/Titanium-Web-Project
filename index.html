@@ -32,19 +32,25 @@
             <div class="form-group">
                 <strong> <label for="email"> Email address <span class="imp"> * </span> </label> </strong>
                 <div class="relative">
-                    <input id="email" class="form-control" type="email" placeholder="eg. abc@mail.com"
-                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ng-model="email" required>
+                    <input id="email" class="form-control" type="email" placeholder="eg. abc@mail.com" name="email"
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ng-model="eMail">
                     <i class="fa fa-envelope"></i>
                 </div>
             </div>
         </div>
+
+        <center>
+            <b ng-if="myForm.email.$invalid && myForm.email.$touched"
+             style="color: red; font-weight: bolder;"> Enter a valid e-mail </b>
+        </center>
 
         <div class="section">
             <div class="form-group">
                 <strong> <label for="contact"> Contact Number <span class="imp"> * </span> </label> </strong>
                 <div class="relative">
                     <input id="contact" title="Type your 10-digit mobile number (US)..." type="tel" ng-model="mobile"
-                           class="form-control input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" required>
+                           class="form-control input-medium bfh-phone" data-format="+1-(ddd)-ddd-dddd"
+                           pattern="[\+]\d{1}[\-][\(]\d{3}[\)][\-]\d{3}[\-]\d{4}" required>
                     <i class="fa fa-phone"></i>
                 </div>
             </div>
@@ -119,7 +125,8 @@
                 <div class="col-sm-6">
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="retail" name="retail"
-                               ng-model="retail" ng-change="toggle()" ng-required="retail || commerce || moto || other">
+                               ng-model="retail" ng-change="toggle()" ng-required="!(retail || commerce || moto
+                               || other)">
                         <label class="custom-control-label" for="retail"> Retail / Swiped </label>
                     </div>
 
@@ -138,7 +145,7 @@
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="commerce" name="commerce"
                                ng-model="commerce" ng-change="toggle()"
-                               ng-required="retail || commerce || moto || other">
+                               ng-required="!(retail || commerce || moto || other)">
                         <label class="custom-control-label" for="commerce"> e-commerce </label>
                     </div>
                     <div ng-show="commerce">
@@ -157,7 +164,7 @@
                 <div class="col-sm-6">
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="moto" name="moto" ng-model="moto"
-                               ng-change="toggle()" ng-required="retail || commerce || moto || other">
+                               ng-change="toggle()" ng-required="!(retail || commerce || moto || other)">
                         <label class="custom-control-label" for="moto"> Phone order / Keyed </label>
                         <!-- Previously called Moto -->
                     </div>
@@ -175,7 +182,7 @@
                 <div class="col-sm-6">
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="other" name="other" ng-model="other"
-                               ng-change="toggle()" ng-required="retail || commerce || moto || other">
+                               ng-change="toggle()" ng-required="!(retail || commerce || moto || other)">
                         <label class="custom-control-label" for="other"> Other </label>
                     </div>
                     <div ng-show="other">
@@ -193,8 +200,8 @@
             <center> <b style="color: red; font-weight: bolder"> {{ errorMsg }} </b> </center>
 
             <center> <b style="color: red; font-weight: bolder">
-                <span ng-show="!(retail || commerce || moto || other) && (myForm.retail.$touched || myForm.commerce.$touched
-                || myForm.moto.$touched || myForm.other.$touched)">
+                <span ng-show="!(retail || commerce || moto || other) && (myForm.retail.$touched
+                || myForm.commerce.$touched || myForm.moto.$touched || myForm.other.$touched)">
                         Payment Method is is required
                 </span> </b>
             </center>
@@ -318,9 +325,8 @@
             <label for="avgTicket"> Average Ticket </label>
 
             <div class="relative input-group bottom">
-                <input type="number" class="form-control currency" min="0"
-                name="avgTicket" ng-model="avgTicket" id="avgTicket" placeholder="$"
-                ng-required="!(tranXns != undefined || avgTicket != undefined)">
+                <input type="number" class="form-control currency" min="0" name="avgTicket" ng-model="avgTicket"
+                id="avgTicket" placeholder="$" ng-required="!(tranXns != undefined || avgTicket != undefined)">
                 <i class="fa fa-money"></i>
             </div>
 
@@ -340,7 +346,7 @@
                 </button>
             </a>
 
-            <a href="https://www.gmail.com">
+            <a href="https://www.google.com/">
                 <button class="movebtn movebtnsu" type="Submit"> Go!
                     <i class="fa fa-fw fa-paper-plane"></i>
                 </button>

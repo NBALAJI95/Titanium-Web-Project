@@ -15,7 +15,7 @@
 <div class="container" ng-controller="myCtrl">
     <form name="myForm" id="merchantS" class="form" autocomplete="off" method="POST" action="https://www.google.com/">
 
-        <h2> User Profile </h2>
+        <h2 id="userProfile"> User Profile </h2>
         <div class="section">
             <div class="form-group">
                 <strong> <label for="name"> Full Name <span class="imp"> * </span> </label> </strong>
@@ -38,11 +38,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- <center>
-            <b ng-if="myForm.email.$invalid && myForm.email.$touched"
-             style="color: red; font-weight: bolder;"> Enter a valid e-mail </b>
-        </center> -->
 
         <div class="section">
             <div class="form-group">
@@ -90,32 +85,19 @@
             </div>
         </div>
 
-        <!-- <center>
-            <b ng-if="myForm.myInput.$invalid && myForm.myInput.$touched"
-             style="color: red; font-weight: bolder;"> Enter a valid Zipcode </b>
-        </center> -->
-
         <h2> Business Info. </h2>
         <div class="section">
             <strong><label for="Select1"> What type of business do you have? </label></strong>
-            <select class="form-control" id="Select1">
-                <option> Donations & Personal Services </option>
-                <option> Service Providers </option>
-                <option> Professional Services </option>
-                <option> Groups / Organizations </option>
-                <option> Events / Entertainment </option>
-                <option> Retail Business </option>
+            <select class="form-control" ng-model="sel_attr" ng-options="attr for attr in mccCategories"
+            value="{{attr}}" ng-change="Category()">
             </select>
 
             <strong> <label for="mcc"> MCC Code <span class="imp"> * </span> </label> </strong>
 
-            <select class="form-control" id="mcc">
-                <option> Travel-4722 </option>
-                <option> Camps-7032 </option>
-                <option> Film Screenings-7832 </option>
-                <option> Band / Orchestra-7929 </option>
-                <option> Theater-7922 </option>
-                <option> Other Events / Entertainment-7999 </option>
+            <select class="form-control" id="mcc" ng-model="mccCodes">
+               <option ng:repeat="mccCode in mccList" value="{{mccCode}}">
+                   {{mccCode}}
+               </option>
             </select>
         </div>
 
@@ -282,7 +264,7 @@
                     </div>
 
                     <div class="col-sm-6 bottom">
-                        <label for="fee"> Total fees paid </label>
+                        <b> <label for="fee"> Total fees paid </label> </b>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
@@ -340,10 +322,12 @@
         <br/>
 
         <div class="tright">
-            <button id="reset" ng-click="resetForm()" type="button" class="btn btn-outline-warning movebtn movebtnre">
-                Reset
-                <i class="fa fa-fw fa-refresh"></i>
-            </button>
+            <a href="#userProfile">
+                <button id="reset" ng-click="resetForm()" type="button" class="btn btn-outline-warning movebtn movebtnre">
+                    Reset
+                    <i class="fa fa-fw fa-refresh"></i>
+                </button>
+            </a>
 
             <button type="submit" class="btn btn-outline-primary movebtn movebtnsu">
                 <i class="fa fa-fw fa-paper-plane"></i>

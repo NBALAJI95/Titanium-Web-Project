@@ -1,5 +1,46 @@
 var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope) {
+app.controller('myCtrl', function($scope, $http) {
+    $http.get("https://api.jsonbin.io/b/5a6f4a7a4240d0776a228983")
+    .then(function(response) {
+        $scope.mccData = response.data;
+        // console.log($scope.mccData.length);
+        const categories = [];
+        const mccCodeV = {};
+
+        for(let i = 0; i < $scope.mccData.length; i++) {
+            // console.log(categories.indexOf($scope.mccData[i]["AMEX Industry"]) > -1);
+
+            if(categories.indexOf($scope.mccData[i]["AMEX Industry"].trim()) > -1) {
+                let tmp =[];
+                tmp = mccCodeV[$scope.mccData[i]["AMEX Industry"].trim()];
+                if(tmp.indexOf(`${$scope.mccData[i]["MCC"]} - ${$scope.mccData[i]["MCC DESCRIPTION"].trim()}`) > -1)
+                {
+
+                }
+
+                else {
+                    tmp.push(`${$scope.mccData[i]["MCC"]} - ${$scope.mccData[i]["MCC DESCRIPTION"].trim()}`);
+                }
+
+                mccCodeV[$scope.mccData[i]["AMEX Industry"].trim()]  = tmp;
+            }
+
+            else {
+                categories.push($scope.mccData[i]["AMEX Industry"].trim());
+                let tmp = [];
+                tmp.push(`${$scope.mccData[i]["MCC"]} - ${$scope.mccData[i]["MCC DESCRIPTION"].trim()}`);
+                mccCodeV[$scope.mccData[i]["AMEX Industry"].trim()] = tmp;
+            }
+        }
+
+
+        categories.sort();
+
+        $scope.mccCategories = categories;
+        $scope.mccV = mccCodeV;
+        console.log(mccCodeV);
+    });
+
     $scope.retailV = 0;
     $scope.ecomerceV = 0;
     $scope.motoV = 0;
@@ -23,6 +64,10 @@ app.controller('myCtrl', function($scope) {
         else {
             reset();
         }
+    }
+
+    $scope.Category = function () {
+        $scope.mccList = $scope.mccV[$scope.sel_attr];
     }
 
     $scope.toggle = function () {
@@ -55,11 +100,14 @@ app.controller('myCtrl', function($scope) {
 
         $scope.fullName = undefined;
         // $scope.email = undefined;
-        $scope.mobile = undefined;
+        $scope.mobile = "";
         $scope.companyName = undefined;
         $scope.currentProvider = undefined;
         $scope.zipcode = undefined; // zip
-        $scope.eMail = undefined;
+        $scope.eMail = "";
+
+        $scope.sel_attr = "";
+        $scope.mccCodes = "";
 
         $scope.retailV = 0;
         $scope.ecomerceV = 0;

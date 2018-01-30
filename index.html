@@ -95,13 +95,15 @@
 
             <strong> <label for="mcc"> MCC Code <span class="imp"> * </span> </label> </strong>
 
-            <select class="form-control" name="Mcc" id="mcc" ng-model="mccCodes" required>
+            <select class="form-control" name="Mcc" id="mcc" ng-model="mccCodes" ng-required="mccCodes == ''
+            || mccCodes == undefined">
+               <option></option>
                <option ng:repeat="mccCode in mccList" value="{{mccCode}}">
                    {{mccCode}}
                </option>
             </select>
             <center> <b style="color: red; font-weight: bolder">
-                <span ng-show="myForm.Mcc.$error.required && myForm.other.$touched"> MCC CODE required </span>
+                <span ng-show="myForm.Mcc.$error.required && myForm.Mcc.$touched"> MCC CODE required </span>
             </b></center>
         </div>
 

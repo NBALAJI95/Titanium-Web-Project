@@ -38,7 +38,6 @@ app.controller('myCtrl', function($scope, $http) {
 
         $scope.mccCategories = categories;
         $scope.mccV = mccCodeV;
-        console.log(mccCodeV);
     });
 
     $scope.retailV = 0;
@@ -113,7 +112,6 @@ app.controller('myCtrl', function($scope, $http) {
         console.log("Reset");
 
         $scope.fullName = undefined;
-        // $scope.email = undefined;
         $scope.mobile = "";
         $scope.companyName = undefined;
         $scope.currentProvider = undefined;
@@ -146,6 +144,7 @@ app.controller('myCtrl', function($scope, $http) {
         $scope.myForm.tranXns.$setUntouched();
         $scope.myForm.myInput.$setUntouched();
         $scope.myForm.email.$setUntouched();
+        $scope.myForm.Mcc.$setUntouched();
         reset();
 
         $scope.myForm.retail.$setUntouched();

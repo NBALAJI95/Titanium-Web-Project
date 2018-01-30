@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -94,11 +95,14 @@
 
             <strong> <label for="mcc"> MCC Code <span class="imp"> * </span> </label> </strong>
 
-            <select class="form-control" id="mcc" ng-model="mccCodes">
+            <select class="form-control" name="Mcc" id="mcc" ng-model="mccCodes" required>
                <option ng:repeat="mccCode in mccList" value="{{mccCode}}">
                    {{mccCode}}
                </option>
             </select>
+            <center> <b style="color: red; font-weight: bolder">
+                <span ng-show="myForm.Mcc.$error.required && myForm.other.$touched"> MCC CODE required </span>
+            </b></center>
         </div>
 
         <div class="section">
@@ -206,7 +210,7 @@
                                 <span class="input-group-text">$</span>
                             </div>
                             <input type="number" class="form-control" min="0" name="a" ng-model="a" id="VISA"
-                                   placeholder="Amount (USD)" ng-required="!(a != undefined || b != undefined
+                                   placeholder="Amount (USD)" ng-change="cor()" ng-required="!(a != undefined || b != undefined
                                    || c != undefined || d != undefined || e != undefined)">
                         </div>
                     </div>
@@ -218,7 +222,7 @@
                                 <span class="input-group-text">$</span>
                             </div>
                             <input type="number" class="form-control" min="0" name="e" ng-model="e" id="Master"
-                                   placeholder="Amount (USD)" ng-required="!(a != undefined || b != undefined
+                                   placeholder="Amount (USD)" ng-change="cor()" ng-required="!(a != undefined || b != undefined
                                    || c != undefined || d != undefined || e != undefined)">
                         </div>
                     </div>
@@ -232,7 +236,7 @@
                                 <span class="input-group-text">$</span>
                             </div>
                             <input type="number" class="form-control" min="0" name="b" ng-model="b" id="discover"
-                                   placeholder="Amount (USD)" ng-required="!(a != undefined || b != undefined
+                                   placeholder="Amount (USD)" ng-change="cor()" ng-required="!(a != undefined || b != undefined
                                    || c != undefined || d != undefined || e != undefined)">
                         </div>
                     </div>
@@ -244,7 +248,7 @@
                                 <span class="input-group-text">$</span>
                             </div>
                             <input type="number" class="form-control" min="0" name="c" ng-model="c" id="AMEX"
-                            placeholder="Amount (USD)" ng-required="!(a != undefined || b != undefined
+                            placeholder="Amount (USD)" ng-change="cor()" ng-required="!(a != undefined || b != undefined
                             || c != undefined || d != undefined || e != undefined)">
                         </div>
                     </div>
@@ -258,22 +262,23 @@
                                 <span class="input-group-text">$</span>
                             </div>
                             <input type="number" class="form-control" min="0" name="d" ng-model="d" id="pinDebit"
-                            placeholder="Amount (USD)" ng-required="!(a != undefined || b != undefined
+                            placeholder="Amount (USD)" ng-change="cor()" ng-required="!(a != undefined || b != undefined
                             || c != undefined || d != undefined || e != undefined)">
                         </div>
                     </div>
 
                     <div class="col-sm-6 bottom">
-                        <b> <label for="fee"> Total fees paid </label> </b>
+                        <b> <label for="fee"> Total Volume </label> </b>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
                             </div>
                             <input type="number" class="form-control" min="0" value="{{ a + b + c + d + e }}"
-                                   id="fee" placeholder="Amount (USD)" readonly>
+                                   id="fee" placeholder="Amount (USD)" ng-model="totalV" readonly>
                         </div>
                     </div>
                 </div>
+
                 <center> <b style="color: red; font-weight: bolder">
                     <span ng-show="(myForm.a.$touched || myForm.b.$touched || myForm.c.$touched || myForm.d.$touched
                     || myForm.e.$touched) && (myForm.a.$invalid && myForm.b.$invalid && myForm.c.$invalid
@@ -281,6 +286,21 @@
                             Monthly Volume is required
                     </span> </b>
                 </center>
+            </div>
+
+            <hr/>
+
+            <div class="row">
+                <div class="col-sm-6 offset-sm-3 bottom">
+                    <label for="totalFee"> Total fee </label> <span class="imp"> * </span>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                    <input type="number" class="form-control" min="0" name="totalFee" ng-model="totalFee" id="totalFee"
+                    placeholder="Amount (USD)" required>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -296,7 +316,7 @@
             <div class="relative">
                 <input type="number" class="form-control allownumericwithoutdecimal" id="tranxsPm" min="0"
                        placeholder="eg. 1500" name="tranXns" ng-model="tranXns" ng-required="!(tranXns != undefined ||
-                       avgTicket != undefined)">
+                       avgTicket != undefined)" ng-change="divisionOp1()">
                 <i class="fa fa-calculator"></i>
             </div>
 
@@ -308,7 +328,8 @@
 
             <div class="relative input-group bottom">
                 <input type="number" class="form-control currency" min="0" name="avgTicket" ng-model="avgTicket"
-                id="avgTicket" placeholder="$" ng-required="!(tranXns != undefined || avgTicket != undefined)">
+                id="avgTicket" placeholder="$" ng-required="!(tranXns != undefined || avgTicket != undefined)"
+                ng-change="divisionOp2()">
                 <i class="fa fa-money"></i>
             </div>
 

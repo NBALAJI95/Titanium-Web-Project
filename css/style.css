@@ -220,21 +220,25 @@ button {
     color:#fff;
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    font-family: 'Quicksand', sans-serif;
+::-webkit-input-placeholder  { /* Chrome/Opera/Safari */
+    font-family: 'Montserrat', sans-serif;
     font-weight: lighter;
+    color: #5a5a6e;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: lighter;
+    color: #5a5a6e;
 }
 :-ms-input-placeholder { /* IE 10+ */
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: lighter;
+    color: #5a5a6e;
 }
 :-moz-placeholder { /* Firefox 18- */
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: lighter;
+    color: #5a5a6e;
 }
 
 /* --- Media Queries --- */

@@ -70,8 +70,22 @@ app.controller('myCtrl', function($scope, $http) {
         $scope.mccList = $scope.mccV[$scope.sel_attr];
     }
 
+    $scope.divisionOp1 = function () {
+        $scope.avgTicket = ((parseInt($scope.a) || 0) + (parseInt($scope.b) || 0) + (parseInt($scope.c) || 0)
+            + (parseInt($scope.d) || 0) + (parseInt($scope.e) || 0)) / parseInt($scope.tranXns);
+    }
+
+    $scope.divisionOp2 = function () {
+        $scope.tranXns = ((parseInt($scope.a) || 0) + (parseInt($scope.b) || 0) + (parseInt($scope.c) || 0)
+            + (parseInt($scope.d) || 0) + (parseInt($scope.e) || 0)) / parseInt($scope.avgTicket);
+    }
+
+    $scope.cor = () => {
+        $scope.avgTicket = ((parseInt($scope.a) || 0) + (parseInt($scope.b) || 0) + (parseInt($scope.c) || 0)
+            + (parseInt($scope.d) || 0) + (parseInt($scope.e) || 0)) / parseInt($scope.tranXns);
+    }
+
     $scope.toggle = function () {
-        // console.log("toggle");
         if(!$scope.retail) {
             $scope.retailV = 0;
         }
@@ -108,6 +122,7 @@ app.controller('myCtrl', function($scope, $http) {
 
         $scope.sel_attr = "";
         $scope.mccCodes = "";
+        $scope.mccList = undefined;
 
         $scope.retailV = 0;
         $scope.ecomerceV = 0;

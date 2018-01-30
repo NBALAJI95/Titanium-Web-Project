@@ -18,21 +18,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
-              <caret line="105" column="72" lean-forward="false" selection-start-line="105" selection-start-column="61" selection-end-line="105" selection-end-column="72" />
+            <state relative-caret-position="460">
+              <caret line="92" column="63" lean-forward="false" selection-start-line="92" selection-start-column="63" selection-end-line="92" selection-end-column="63" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="angularjsMain.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="angularjsMain.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/angularjsMain.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="140" column="29" lean-forward="true" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
+            <state relative-caret-position="2369">
+              <caret line="103" column="18" lean-forward="false" selection-start-line="103" selection-start-column="18" selection-end-line="103" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -51,8 +51,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="230" column="19" lean-forward="true" selection-start-line="230" selection-start-column="19" selection-end-line="230" selection-end-column="19" />
+            <state relative-caret-position="83">
+              <caret line="225" column="18" lean-forward="false" selection-start-line="225" selection-start-column="18" selection-end-line="225" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -78,6 +78,8 @@
       <find>e-commerce</find>
       <find>place</find>
       <find>fee</find>
+      <find>consol</find>
+      <find>log</find>
       <find>other</find>
     </findStrings>
   </component>
@@ -89,9 +91,9 @@
       <list>
         <option value="$PROJECT_DIR$/js/inputRestrict.js" />
         <option value="$PROJECT_DIR$/test.html" />
+        <option value="$PROJECT_DIR$/js/angularjsMain.js" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/angularjsMain.js" />
       </list>
     </option>
   </component>
@@ -210,12 +212,12 @@
       <workItem from="1517240441965" duration="100000" />
       <workItem from="1517241263590" duration="18000" />
       <workItem from="1517241778127" duration="6916000" />
-      <workItem from="1517254849105" duration="10366000" />
+      <workItem from="1517254849105" duration="10992000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88111000" />
+    <option name="totallyTimeSpent" value="88737000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="136" y="165" width="1922" height="1040" extended-state="6" />
@@ -593,26 +595,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/angularjsMain.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2369">
+          <caret line="103" column="18" lean-forward="false" selection-start-line="103" selection-start-column="18" selection-end-line="103" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="230" column="19" lean-forward="true" selection-start-line="230" selection-start-column="19" selection-end-line="230" selection-end-column="19" />
+        <state relative-caret-position="83">
+          <caret line="225" column="18" lean-forward="false" selection-start-line="225" selection-start-column="18" selection-end-line="225" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="105" column="72" lean-forward="false" selection-start-line="105" selection-start-column="61" selection-end-line="105" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/angularjsMain.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="140" column="29" lean-forward="true" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
+        <state relative-caret-position="460">
+          <caret line="92" column="63" lean-forward="false" selection-start-line="92" selection-start-column="63" selection-end-line="92" selection-end-column="63" />
           <folding />
         </state>
       </provider>

@@ -80,7 +80,7 @@
                 <div class="relative">
                     <input id="zip" class="form-control" type='text' minlength="5" maxlength="5" ng-model='zipcode' name="myInput"
                     ng-model="myInput" ng-pattern='/^(\d{5}(-\d{4})?|[A-Z]\d[A-Z] *\d[A-Z]\d)$/'
-                    placeholder='60625' required />
+                    placeholder='eg. 60625' required />
                     <i class="fa fa-map-pin"></i>
                 </div>
             </div>
@@ -90,7 +90,7 @@
         <div class="section">
             <strong><label for="Select1"> What type of business do you have? </label></strong>
             <select class="form-control" ng-model="sel_attr" ng-options="attr for attr in mccCategories"
-            value="{{attr}}" ng-change="Category()">
+            value="{{attr}}" ng-change="Category()" id="Select1">
             </select>
 
             <strong> <label for="mcc"> MCC Code <span class="imp"> * </span> </label> </strong>

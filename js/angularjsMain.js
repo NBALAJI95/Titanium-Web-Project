@@ -62,18 +62,15 @@ app.controller('myCtrl', function($scope, $http) {
     }
 
     $scope.divisionOp1 = function () {
-        $scope.avgTicket = ((parseInt($scope.a) || 0) + (parseInt($scope.b) || 0) + (parseInt($scope.c) || 0)
-            + (parseInt($scope.d) || 0) + (parseInt($scope.e) || 0)) / parseInt($scope.tranXns);
+        $scope.avgTicket = ((parseInt($scope.totalV) || 0) / parseInt($scope.tranXns));
     }
 
     $scope.divisionOp2 = function () {
-        $scope.tranXns = ((parseInt($scope.a) || 0) + (parseInt($scope.b) || 0) + (parseInt($scope.c) || 0)
-            + (parseInt($scope.d) || 0) + (parseInt($scope.e) || 0)) / parseInt($scope.avgTicket);
+        $scope.tranXns = ((parseInt($scope.totalV) || 0)) / parseInt($scope.avgTicket);
     }
 
     $scope.cor = () => {
-        $scope.avgTicket = ((parseInt($scope.a) || 0) + (parseInt($scope.b) || 0) + (parseInt($scope.c) || 0)
-            + (parseInt($scope.d) || 0) + (parseInt($scope.e) || 0)) / parseInt($scope.tranXns);
+        $scope.avgTicket = ((parseInt($scope.totalV) || 0)) / parseInt($scope.tranXns);
     }
 
     $scope.toggle = function () {
@@ -117,11 +114,6 @@ app.controller('myCtrl', function($scope, $http) {
         $scope.motoV = 0;
         $scope.otherV = 0;
 
-        $scope.a = undefined;
-        $scope.b = undefined;
-        $scope.c = undefined;
-        $scope.d = undefined;
-        $scope.e = undefined;
         $scope.avgTicket = undefined;
         $scope.tranXns = undefined;
 
@@ -141,12 +133,6 @@ app.controller('myCtrl', function($scope, $http) {
         $scope.myForm.commerce.$setUntouched();
         $scope.myForm.moto.$setUntouched();
         $scope.myForm.other.$setUntouched();
-
-        $scope.myForm.a.$setUntouched();
-        $scope.myForm.b.$setUntouched();
-        $scope.myForm.c.$setUntouched();
-        $scope.myForm.d.$setUntouched();
-        $scope.myForm.e.$setUntouched();
     }
 
 });

@@ -15,6 +15,11 @@ form select, form div.section {
     margin-bottom: 1rem;
 }
 
+.jumbotron {
+    max-height: 500px;
+    background-color: #cccccc;
+}
+
 form div.bottom {
     margin-bottom: 0.7rem;
 }
@@ -35,10 +40,6 @@ form label {
 form input, form select {
     font-family: 'Quicksand', sans-serif;
     font-weight: 800;
-}
-
-#fee {
-    background-color: #ddd;
 }
 
 .form {
@@ -268,8 +269,8 @@ button {
     form div.per {
         width: 60%;
     }
-}
 
+}
 
 @media only screen and (max-width: 450px) {
     .form {
@@ -279,6 +280,7 @@ button {
     form div.per {
         width: 85%;
     }
+
 }
 
 form br {

@@ -13,8 +13,38 @@
 </head>
 
 <body ng-app="myApp">
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+  	<div class="row">
+    	<div class="col-sm-6 col-lg-4">
+    	    <center>
+    	        <a style="text-decoration: none; background-color: white;"
+    	        href="#" target="_blank">
+                  <img src="image.png" alt="Lights"
+                  style="width:100%">
+                  <div class="caption">
+                    <p> Simple | Transparent | For you </p>
+                  </div>
+                </a>
+  			</center>
+        </div>
+        <div class="col-sm-6 col-lg-8">
+            <center>
+    		<h2 style="text-align: center"> Instructions </h2>
+            <ol style="font-size: 0.95rem; list-style-type: none">
+              <li> Fill out the form below (it helps with monthly processing) </li>
+              <li> See what businesses like you are paying for payment processing. </li>
+            </ol>
+            </center>
+        </div>
+    </div>
+  </div>
+</div>
+
 <div class="container" ng-controller="myCtrl">
-    <form name="myForm" id="merchantS" class="form" autocomplete="off" method="POST" action="https://www.google.com/">
+    <form name="myForm" id="merchantS" class="form" autocomplete="off" method="POST"
+    action="http://www.titaniumpayments.com/">
 
         <h2 id="userProfile"> User Profile </h2>
         <div class="section">
@@ -204,103 +234,27 @@
             </strong>
 
             <div class="form-group" id="monthlyV">
-                <div class="row ">
-                    <div class="col-sm-6 bottom">
-                        <label for="VISA"> VISA </label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">$</span>
-                            </div>
-                            <input type="number" class="form-control" min="0" name="a" ng-model="a" id="VISA"
-                                   placeholder="Amount (USD)" ng-change="cor()" ng-required="!(a != undefined || b != undefined
-                                   || c != undefined || d != undefined || e != undefined)">
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 bottom">
-                        <label for="Master"> Master Card </label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">$</span>
-                            </div>
-                            <input type="number" class="form-control" min="0" name="e" ng-model="e" id="Master"
-                                   placeholder="Amount (USD)" ng-change="cor()" ng-required="!(a != undefined || b != undefined
-                                   || c != undefined || d != undefined || e != undefined)">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row ">
-                    <div class="col-sm-6 bottom">
-                        <label for="discover"> Discover </label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">$</span>
-                            </div>
-                            <input type="number" class="form-control" min="0" name="b" ng-model="b" id="discover"
-                                   placeholder="Amount (USD)" ng-change="cor()" ng-required="!(a != undefined || b != undefined
-                                   || c != undefined || d != undefined || e != undefined)">
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 bottom">
-                        <label for="AMEX"> Amex </label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">$</span>
-                            </div>
-                            <input type="number" class="form-control" min="0" name="c" ng-model="c" id="AMEX"
-                            placeholder="Amount (USD)" ng-change="cor()" ng-required="!(a != undefined || b != undefined
-                            || c != undefined || d != undefined || e != undefined)">
-                        </div>
-                    </div>
-                </div>
-
                 <div class="row">
                     <div class="col-sm-6 bottom">
-                        <label for="pinDebit"> Pin Debit </label>
+                        <label for="fee"> Total Volume </label> <span class="imp"> * </span>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
                             </div>
-                            <input type="number" class="form-control" min="0" name="d" ng-model="d" id="pinDebit"
-                            placeholder="Amount (USD)" ng-change="cor()" ng-required="!(a != undefined || b != undefined
-                            || c != undefined || d != undefined || e != undefined)">
+                            <input type="number" class="form-control" min="0" ng-change="cor()"
+                                   id="fee" placeholder="Amount (USD)" ng-model="totalV" required>
                         </div>
                     </div>
 
                     <div class="col-sm-6 bottom">
-                        <b> <label for="fee"> Total Volume </label> </b>
+                        <label for="totalFee"> Total fee </label> <span class="imp"> * </span>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
                             </div>
-                            <input type="number" class="form-control" min="0" value="{{ a + b + c + d + e }}"
-                                   id="fee" placeholder="Amount (USD)" ng-model="totalV" readonly>
+                        <input type="number" class="form-control" min="0" name="totalFee" ng-model="totalFee" id="totalFee"
+                        placeholder="Amount (USD)" required>
                         </div>
-                    </div>
-                </div>
-
-                <center> <b style="color: red; font-weight: bolder">
-                    <span ng-show="(myForm.a.$touched || myForm.b.$touched || myForm.c.$touched || myForm.d.$touched
-                    || myForm.e.$touched) && (myForm.a.$invalid && myForm.b.$invalid && myForm.c.$invalid
-                    && myForm.d.$invalid && myForm.e.$invalid)">
-                            Monthly Volume is required
-                    </span> </b>
-                </center>
-            </div>
-
-            <hr/>
-
-            <div class="row">
-                <div class="col-sm-6 offset-sm-3 bottom">
-                    <label for="totalFee"> Total fee </label> <span class="imp"> * </span>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">$</span>
-                        </div>
-                    <input type="number" class="form-control" min="0" name="totalFee" ng-model="totalFee" id="totalFee"
-                    placeholder="Amount (USD)" required>
                     </div>
                 </div>
             </div>

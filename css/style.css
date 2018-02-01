@@ -17,7 +17,7 @@ form select, form div.section {
 
 .jumbotron {
     max-height: 500px;
-    background-color: #cccccc;
+    background-color: #fff;
 }
 
 form div.bottom {
@@ -29,11 +29,11 @@ form div.bottom {
 }
 
 body {
-    background-color: black !important;
+    background-color: #fff !important;
     font-size: 1.1rem;
 }
 
-form label {
+form label, .header, div p {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -45,9 +45,9 @@ form input, form select {
 .form {
     max-width: calc(100vw - 40px);
     height: auto;
-    background: rgba(255, 255, 255, 1);
+    background: azure;
     border-radius: 8px;
-    box-shadow: 0 0 40px -10px #fff;
+    box-shadow: 0 0 40px -10px dodgerblue;
     margin: 0 auto;
     padding: 20px 30px;
     box-sizing: border-box;
@@ -222,22 +222,22 @@ button {
 }
 
 ::-webkit-input-placeholder  { /* Chrome/Opera/Safari */
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif !important;
     font-weight: lighter;
     color: #5a5a6e;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif !important;
     font-weight: lighter;
     color: #5a5a6e;
 }
 :-ms-input-placeholder { /* IE 10+ */
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif !important;
     font-weight: lighter;
     color: #5a5a6e;
 }
 :-moz-placeholder { /* Firefox 18- */
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif !important;
     font-weight: lighter;
     color: #5a5a6e;
 }

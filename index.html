@@ -20,7 +20,7 @@
     	<div class="col-sm-6 col-lg-4">
     	    <center>
     	        <a style="text-decoration: none; background-color: white;"
-    	        href="#" target="_blank">
+    	        href="#" target="_self">
                   <img src="image.png" alt="Lights"
                   style="width:100%">
                   <div class="caption">
@@ -29,7 +29,7 @@
                 </a>
   			</center>
         </div>
-        <div class="col-sm-6 col-lg-8">
+        <div class="col-sm-6 col-lg-8 header">
             <center>
     		<h2 style="text-align: center"> Instructions </h2>
             <ol style="font-size: 0.95rem; list-style-type: none">
@@ -229,7 +229,7 @@
         <div class="section monthly">
             <strong>
                 <label for="monthlyV">
-                    What's your monthly volume? <span class="imp"> * </span>
+                    What are your monthly processing details?
                 </label>
             </strong>
 
@@ -247,7 +247,7 @@
                     </div>
 
                     <div class="col-sm-6 bottom">
-                        <label for="totalFee"> Total fee </label> <span class="imp"> * </span>
+                        <label for="totalFee"> Total fee paid </label> <span class="imp"> * </span>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
@@ -261,13 +261,8 @@
         </div>
 
         <div class="section">
-            <div class="row">
-                <strong style="margin-left: 1em;">
-                    <label> What's your Average ticket? <span class="imp"> * </span> </label>
-                </strong>
-            </div>
 
-            <label for="tranxsPm"> Transactions <strong> (per month) </strong> </label>
+            <label for="tranxsPm"> Transactions ran <strong> (per month) <span class="imp"> * </span> </strong> </label>
 
             <div class="relative">
                 <input type="number" class="form-control allownumericwithoutdecimal" id="tranxsPm" min="0"
@@ -280,7 +275,7 @@
 
             <p> Or </p>
 
-            <label for="avgTicket"> Average Ticket </label>
+            <label for="avgTicket"> Average Ticket <span class="imp"> * </span> </label>
 
             <div class="relative input-group bottom">
                 <input type="number" class="form-control currency" min="0" name="avgTicket" ng-model="avgTicket"

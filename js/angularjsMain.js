@@ -96,7 +96,7 @@ app.controller('myCtrl', function($scope, $http) {
             reset();
         }
     }
-    
+
     $scope.resetForm = function () {
         $scope.fullName = undefined;
         $scope.mobile = "";
@@ -133,6 +133,8 @@ app.controller('myCtrl', function($scope, $http) {
         $scope.myForm.commerce.$setUntouched();
         $scope.myForm.moto.$setUntouched();
         $scope.myForm.other.$setUntouched();
+
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
     }
 
 });

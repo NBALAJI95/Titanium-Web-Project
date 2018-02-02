@@ -14,29 +14,28 @@
 
 <body ng-app="myApp">
 
-<div class="jumbotron jumbotron-fluid">
+<div id="head" class="jumbotron jumbotron-fluid">
   <div class="container">
   	<div class="row">
     	<div class="col-sm-6 col-lg-4">
-    	    <center>
-    	        <a style="text-decoration: none; background-color: white;"
-    	        href="#" target="_self">
-                  <img src="image.png" alt="Lights"
-                  style="width:100%">
-                  <div class="caption">
+            <a style="text-decoration: none; background-color: white;"
+            href="#" target="_self">
+              <img src="image.png" alt="Lights"
+              style="width:100%">
+              <div class="caption">
+                <center>
                     <p> Simple | Transparent | For you </p>
-                  </div>
-                </a>
-  			</center>
+                </center>
+              </div>
+            </a>
         </div>
+
         <div class="col-sm-6 col-lg-8 header">
-            <center>
     		<h2 style="text-align: center"> Instructions </h2>
-            <ol style="font-size: 0.95rem; list-style-type: none">
+            <ul style="font-size: 0.95rem; float: right;">
               <li> Fill out the form below (it helps with monthly processing) </li>
               <li> See what businesses like you are paying for payment processing. </li>
-            </ol>
-            </center>
+            </ul>
         </div>
     </div>
   </div>
@@ -46,12 +45,12 @@
     <form name="myForm" id="merchantS" class="form" autocomplete="off" method="POST"
     action="http://www.titaniumpayments.com/">
 
-        <h2 id="userProfile"> User Profile </h2>
+        <h2> User Profile </h2>
         <div class="section">
             <div class="form-group">
-                <strong> <label for="name"> Full Name <span class="imp"> * </span> </label> </strong>
+                <strong> <label for="name"> Full Name </label> </strong>
                 <div class="relative">
-                    <input class="form-control" id="name" type="text" autofocus=""
+                    <input class="form-control" id="name" type="text"
                            title="Type your name here. Format: 'First-name Last-name'" autocomplete="off"
                            placeholder="eg. John Smith" ng-model="fullName" required>
                     <i class="fa fa-user"></i>
@@ -61,7 +60,7 @@
 
         <div class="section">
             <div class="form-group">
-                <strong> <label for="email"> Email address <span class="imp"> * </span> </label> </strong>
+                <strong> <label for="email"> Email address </label> </strong>
                 <div class="relative">
                     <input id="email" class="form-control" type="email" placeholder="eg. abc@mail.com" name="email"
                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ng-model="eMail" required>
@@ -72,7 +71,7 @@
 
         <div class="section">
             <div class="form-group">
-                <strong> <label for="contact"> Contact Number <span class="imp"> * </span> </label> </strong>
+                <strong> <label for="contact"> Contact Number </label> </strong>
                 <div class="relative">
                     <input id="contact" title="Type your 10-digit mobile number (US)..." type="tel" ng-model="mobile"
                            class="form-control input-medium bfh-phone" data-format="+1-(ddd)-ddd-dddd"
@@ -84,7 +83,7 @@
 
         <div class="section">
             <div class="form-group">
-                <strong> <label for="company"> Company Name <span class="imp"> * </span> </label> </strong>
+                <strong> <label for="company"> Company Name </label> </strong>
                 <div class="relative">
                     <input id="company" class="form-control" type="text" title="Type your Company name here"
                            placeholder="eg. Pied Piper" ng-model="companyName" required>
@@ -95,10 +94,10 @@
 
         <div class="section">
             <div class="form-group">
-                <strong> <label for="provider"> Current Provider <span class="imp"> * </span> </label> </strong>
+                <strong> <label for="provider"> Current Provider </label> </strong>
                 <div class="relative">
                     <input class="form-control" type="text" id="provider" title="Type your current provider"
-                           placeholder="eg. Titanium Payments" ng-model="currentProvider" required>
+                           placeholder="eg. Square" ng-model="currentProvider" required>
                     <i class="fa fa-suitcase"></i>
                 </div>
             </div>
@@ -106,11 +105,10 @@
 
         <div class="section">
             <div class="form-group">
-                <strong> <label for="zip"> Zip code <span class="imp"> * </span> </label> </strong>
+                <strong> <label for="zip"> Zip code </label> </strong>
                 <div class="relative">
-                    <input id="zip" class="form-control" type='text' minlength="5" maxlength="5" ng-model='zipcode' name="myInput"
-                    ng-model="myInput" ng-pattern='/^(\d{5}(-\d{4})?|[A-Z]\d[A-Z] *\d[A-Z]\d)$/'
-                    placeholder='eg. 60625' required />
+                    <input id="zip" class="form-control" type='number' min="00501" max="99950" ng-model='zipcode'
+                    name="myInput" placeholder='eg. 60625' required />
                     <i class="fa fa-map-pin"></i>
                 </div>
             </div>
@@ -123,7 +121,7 @@
             value="{{attr}}" ng-change="Category()" id="Select1">
             </select>
 
-            <strong> <label for="mcc"> MCC Code <span class="imp"> * </span> </label> </strong>
+            <strong> <label for="mcc"> MCC Code </label> </strong>
 
             <select class="form-control" name="Mcc" id="mcc" ng-model="mccCodes" ng-required="mccCodes == ''
             || mccCodes == undefined">
@@ -138,7 +136,7 @@
         </div>
 
         <div class="section">
-            <strong> <label> How do you accept payments? <span class="imp"> * </span> </label> </strong>
+            <strong> <label> How do you accept payments? </label> </strong>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="custom-control custom-checkbox">
@@ -150,7 +148,7 @@
 
                     <div ng-show="retail">
                         <div class="relative per">
-                            <input class="ci form-control" id="retailPercent" type="number"
+                            <input class="ci form-control" id="retailPercent" type="number" min="0"
                                    title="" autocomplete="off" max="100"
                                    ng-change="calc(this)" onchange="restrictValue(this)"
                                    placeholder="%" ng-model="retailV" required>
@@ -236,7 +234,7 @@
             <div class="form-group" id="monthlyV">
                 <div class="row">
                     <div class="col-sm-6 bottom">
-                        <label for="fee"> Total Volume </label> <span class="imp"> * </span>
+                        <label for="fee"> Total Volume </label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
@@ -247,7 +245,7 @@
                     </div>
 
                     <div class="col-sm-6 bottom">
-                        <label for="totalFee"> Total fee paid </label> <span class="imp"> * </span>
+                        <label for="totalFee"> Total fee paid </label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
@@ -262,7 +260,7 @@
 
         <div class="section">
 
-            <label for="tranxsPm"> Transactions ran <strong> (per month) <span class="imp"> * </span> </strong> </label>
+            <label for="tranxsPm"> Transactions ran <strong> (per month) </strong> </label>
 
             <div class="relative">
                 <input type="number" class="form-control allownumericwithoutdecimal" id="tranxsPm" min="0"
@@ -275,7 +273,7 @@
 
             <p> Or </p>
 
-            <label for="avgTicket"> Average Ticket <span class="imp"> * </span> </label>
+            <label for="avgTicket"> Average Ticket </label>
 
             <div class="relative input-group bottom">
                 <input type="number" class="form-control currency" min="0" name="avgTicket" ng-model="avgTicket"
@@ -294,7 +292,7 @@
         <br/>
 
         <div class="tright">
-            <a href="#userProfile">
+            <a href="#">
                 <button id="reset" ng-click="resetForm()" type="button" class="btn btn-outline-warning movebtn movebtnre">
                     Reset
                     <i class="fa fa-fw fa-refresh"></i>
@@ -320,6 +318,8 @@
             event.preventDefault();
         }
     });
+
+    $(document).load().scrollTop(0);
 
 </script>
 

@@ -120,9 +120,22 @@ input {
     transition: all .3s;
 }
 
+a, a:hover {
+    text-decoration: none;
+}
+
+.errorMSg {
+    color: red;
+    font-weight: bolder;
+}
+
 form br {
     display: block;
     margin: 2px 0;
+}
+
+.ng-show {
+    animation: 0.5s myChange;
 }
 
 form select, form div.section {
@@ -155,6 +168,33 @@ form:before {
 
 h2 {
     font-family: 'Varela Round', sans-serif;
+}
+
+footer {
+    background: #2d2b2a;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+    font-size: .8rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+footer ul li {
+    display: inline-block;
+}
+footer ul li a {
+    display: block;
+    padding: .4rem .7rem;
+    font-size: .9rem;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+}
+footer ul li a:hover {
+    color: white;
 }
 
 .form h2  {

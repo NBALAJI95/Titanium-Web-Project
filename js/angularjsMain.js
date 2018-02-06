@@ -1,4 +1,4 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ['ngAnimate']);
 app.controller('myCtrl', function($scope, $http) {
     $http.get("https://api.jsonbin.io/b/5a6f4a7a4240d0776a228983")
     .then(function(response) {
@@ -46,11 +46,15 @@ app.controller('myCtrl', function($scope, $http) {
 
     $scope.calc = function(p) {
         const total = ($scope.retailV || 0) + ($scope.ecomerceV || 0) + ($scope.motoV || 0) + ($scope.otherV || 0);
+
         if(total > 100) {
             $scope.errorMsg = `Total percentage is ${total} which should not be greater than 100`;
+            //form.$setValidity('charE', true);
+
         }
         else if(total < 100) {
             $scope.errorMsg = `Total percentage is ${total} which should be equal to 100`;
+            $scope.myForm.retail.$valid = false;
         }
         else {
             reset();
@@ -62,15 +66,18 @@ app.controller('myCtrl', function($scope, $http) {
     }
 
     $scope.divisionOp1 = function () {
-        $scope.avgTicket = ((parseInt($scope.totalV) || 0) / parseInt($scope.tranXns));
+        $scope.avgTicket = parseFloat(parseFloat(((parseInt($scope.totalV) || 0)
+            / parseInt($scope.tranXns)).toString()).toFixed(2));
     }
 
     $scope.divisionOp2 = function () {
-        $scope.tranXns = ((parseInt($scope.totalV) || 0)) / parseInt($scope.avgTicket);
+        $scope.tranXns = parseFloat(parseFloat(((parseInt($scope.totalV) || 0)
+            / parseInt($scope.avgTicket)).toString()).toFixed(0));
     }
 
     $scope.cor = () => {
-        $scope.avgTicket = ((parseInt($scope.totalV) || 0)) / parseInt($scope.tranXns);
+        $scope.avgTicket = parseFloat(parseFloat(((parseInt($scope.totalV) || 0)
+            / parseInt($scope.tranXns)).toString()).toFixed(2));
     }
 
     $scope.toggle = function () {
@@ -102,7 +109,7 @@ app.controller('myCtrl', function($scope, $http) {
         $scope.mobile = "";
         $scope.companyName = undefined;
         $scope.currentProvider = undefined;
-        $scope.zipcode = undefined; // zip
+        $scope.zipcode = undefined;
         $scope.eMail = "";
 
         $scope.sel_attr = "";
@@ -113,6 +120,9 @@ app.controller('myCtrl', function($scope, $http) {
         $scope.ecomerceV = 0;
         $scope.motoV = 0;
         $scope.otherV = 0;
+
+        $scope.totalV = undefined;
+        $scope.totalFee = undefined;
 
         $scope.avgTicket = undefined;
         $scope.tranXns = undefined;
@@ -138,3 +148,5 @@ app.controller('myCtrl', function($scope, $http) {
     }
 
 });
+
+

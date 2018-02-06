@@ -6,35 +6,35 @@
     <title> Titanium Payments </title>
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMdOW5vgaBFqGWcxpTfUVphM5iPiSWxa7I6B9zpm1AOEOw9cve" type="image/png">
+    <link rel="icon" type="image/png"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMdOW5vgaBFqGWcxpTfUVphM5iPiSWxa7I6B9zpm1AOEOw9cve">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body ng-app="myApp">
 
-<div id="head" class="jumbotron jumbotron-fluid">
+<div id="head" class="jumbotron jumbotron-fluid" ng-app="ngAnimate">
   <div class="container">
   	<div class="row">
     	<div class="col-sm-6 col-lg-4">
-            <a style="text-decoration: none; background-color: white;"
-            href="#" target="_self">
+            <p>
               <img src="image.png" alt="Lights"
               style="width:100%">
               <div class="caption">
                 <center>
-                    <p> Simple | Transparent | For you </p>
+                    <b> Simple | Transparent | For you </b>
                 </center>
               </div>
-            </a>
+            </p>
         </div>
 
         <div class="col-sm-6 col-lg-8 header">
-    		<h2 style="text-align: center"> Instructions </h2>
+    		<h2 class="text-center"> Instructions </h2>
             <ul style="font-size: 0.95rem; float: right;">
-              <li> Fill out the form below (it helps with monthly processing) </li>
-              <li> See what businesses like you are paying for payment processing. </li>
+              <li> Please fill out the form below using your monthly credit card processing statement </li>
+              <li> Hit 'Submit' when done to see what other businesses like you are paying </li>
             </ul>
         </div>
     </div>
@@ -52,7 +52,7 @@
                 <div class="relative">
                     <input class="form-control" id="name" type="text"
                            title="Type your name here. Format: 'First-name Last-name'" autocomplete="off"
-                           placeholder="eg. John Smith" ng-model="fullName" required>
+                           placeholder="eg. John Smith" name="fullName" ng-model="fullName" required>
                     <i class="fa fa-user"></i>
                 </div>
             </div>
@@ -107,8 +107,8 @@
             <div class="form-group">
                 <strong> <label for="zip"> Zip code </label> </strong>
                 <div class="relative">
-                    <input id="zip" class="form-control" type='number' min="00501" max="99950" ng-model='zipcode'
-                    name="myInput" placeholder='eg. 60625' required />
+                    <input id="zip" class="form-control" type='number' ng-model='zipcode'
+                    name="myInput" placeholder='eg. 60625' max="99999" required />
                     <i class="fa fa-map-pin"></i>
                 </div>
             </div>
@@ -116,7 +116,7 @@
 
         <h2> Business Info. </h2>
         <div class="section">
-            <strong><label for="Select1"> What type of business do you have? </label></strong>
+            <strong> <label for="Select1"> What type of business do you have? </label> </strong>
             <select class="form-control" ng-model="sel_attr" ng-options="attr for attr in mccCategories"
             value="{{attr}}" ng-change="Category()" id="Select1">
             </select>
@@ -130,7 +130,7 @@
                    {{mccCode}}
                </option>
             </select>
-            <center> <b style="color: red; font-weight: bolder">
+            <center> <b class="errorMSg">
                 <span ng-show="myForm.Mcc.$error.required && myForm.Mcc.$touched"> MCC CODE required </span>
             </b></center>
         </div>
@@ -206,19 +206,19 @@
                             <input class="ci form-control" id="otherPercent" type="number"
                                title="" autocomplete="off" max="100"
                                ng-change="calc()" onchange="restrictValue(this)"
-                               placeholder="%" ng-model="otherV" required>
+                               placeholder="%" name="otherV" ng-model="otherV" required>
                             <i class="fa fa-percent"></i>
                         </div>
                     </div>
                 </div>
             </div>
             <br/>
-            <center> <b style="color: red; font-weight: bolder"> {{ errorMsg }} </b> </center>
+            <center> <b class="errorMSg"> {{ errorMsg }} </b> </center>
 
-            <center> <b style="color: red; font-weight: bolder">
+            <center> <b class="errorMSg">
                 <span ng-show="!(retail || commerce || moto || other) && (myForm.retail.$touched
                 || myForm.commerce.$touched || myForm.moto.$touched || myForm.other.$touched)">
-                        Payment Method is is required
+                        Payment Method is required {{myForm.otherV.$valid}}
                 </span> </b>
             </center>
 
@@ -282,9 +282,10 @@
                 <i class="fa fa-money"></i>
             </div>
 
-            <center> <b style="color: red; font-weight: bolder"> <span ng-show="(myForm.avgTicket.$touched
-                || myForm.tranXns.$touched) && (tranXns == undefined && avgTicket == undefined)">
-                    Average ticket value is required
+            <center>
+                <b class="errorMSg"> <span ng-show="(myForm.avgTicket.$touched
+                    || myForm.tranXns.$touched) && (tranXns == undefined && avgTicket == undefined)">
+                        Average ticket value is required
                 </span> </b>
             </center>
 
@@ -292,20 +293,34 @@
         <br/>
 
         <div class="tright">
-            <a href="#">
-                <button id="reset" ng-click="resetForm()" type="button" class="btn btn-outline-warning movebtn movebtnre">
-                    Reset
-                    <i class="fa fa-fw fa-refresh"></i>
-                </button>
-            </a>
 
-            <button type="submit" class="btn btn-outline-primary movebtn movebtnsu">
+            <button id="reset" ng-click="resetForm()" type="button" class="btn btn-outline-warning movebtn movebtnre">
+                Reset
+                <i class="fa fa-fw fa-refresh"></i>
+            </button>
+
+            <button type="submit" class="btn btn-outline-primary movebtn movebtnsu"
+            ng-disabled="(retailV + ecomerceV + motoV + otherV) != 100 || (totalFee == '' || totalFee == undefined)
+            || (totalV == '' || totalV == undefined) || !(avgTicket + tranXns > 0)">
                 <i class="fa fa-fw fa-paper-plane"></i>
                 Save !
             </button>
+
         </div>
+
     </form>
 </div>
+
+<footer>
+  <div class="container">
+    <ul>
+      <li><a href="http://www.titaniumpayments.com/contact/">Contact</a></li>
+    </ul>
+    <br/>
+    <p>&copy; 2018 Titanium Payments. All rights reserved.</p>
+  </div>
+</footer>
+
 
 <script src='https://code.jquery.com/jquery-1.12.4.js'></script>
 <script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
@@ -319,12 +334,15 @@
         }
     });
 
-    $(document).load().scrollTop(0);
+    $(document).ready(function(){
+        $(this).scrollTop(0);
+    });
 
 </script>
 
 <script src="js/bootstrap-formhelpers-phone.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
 <script src="js/angularjsMain.js" type="text/javascript" rel="script"></script>
 <script src="js/inputRestrict.js" type="text/javascript" rel="script"></script>
 

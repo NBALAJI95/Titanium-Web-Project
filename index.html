@@ -276,7 +276,7 @@
             <label for="avgTicket"> Average Ticket </label>
 
             <div class="relative input-group bottom">
-                <input type="number" class="form-control currency" min="0" name="avgTicket" ng-model="avgTicket"
+                <input type="number" class="form-control currency" step="any" min="0" name="avgTicket" ng-model="avgTicket"
                 id="avgTicket" placeholder="$" ng-required="!(tranXns != undefined || avgTicket != undefined)"
                 ng-change="divisionOp2()">
                 <i class="fa fa-money"></i>

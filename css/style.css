@@ -1,15 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Varela+Round);
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
-@import url(https://fonts.googleapis.com/css?family=Quicksand);
-@import url(https://fonts.googleapis.com/css?family=Cinzel);
-@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Expanded');
+@import url(https://fonts.googleapis.com/css?family=Encode+Sans+Expanded);
+
 .header,
 div p,
 form input,
 form label,
 form select,
-input {
-    font-family: Montserrat, sans-serif
+input, .form h2 {
+    font-family: Montserrat, sans-serif;
 }
 
 .form div input::placeholder {
@@ -177,9 +175,6 @@ form:before {
     border-radius: 2px
 }
 
-h2 {
-    font-family: 'Varela Round', sans-serif
-}
 
 footer {
     background: #2d2b2a;
@@ -215,7 +210,6 @@ footer ul li a {
     font-size: 22px;
     border-bottom: 3px solid #a7adba;
     font-weight: 600;
-    font-family: 'Encode Sans Expanded', sans-serif;
 }
 
 .form p:before {
